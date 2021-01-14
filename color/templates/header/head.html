@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <title>Color Cult</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid pos-rel">
+            <a class="navbar-brand" href="{% url 'color:dashboard' %}">
+                <img class="img-fluid" src="{% static '/img/logo.png' %}" alt="Color Cult" >
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <span class="navbar-text">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ul">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'color:dashboard' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'color:about_us' %}">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="shop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Shop
+                    </a>
+                    <div class="dropdown-menu header-menu" aria-labelledby="shop">
+                    <ul class="category-list ul">
+                        <h6>Products</h6>
+                        {% for get_theme_category in get_all_theme_categories %}
+                        <li><a class="dropdown-item" href="#">{{ get_theme_category.category }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="theme-list ul">
+                        <h6>Popular Themes</h6>
+                        {% for get_theme in get_all_themes %}
+                        <li><a class="dropdown-item" href="#">{{ get_theme.theme }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'color:collaborate' %}">Collaborate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'color:membership' %}">Membership</a>
+                </li>
+                </ul>
+                </span>
+            </div>
+        </div>
+    </nav>
