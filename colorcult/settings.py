@@ -26,7 +26,7 @@ SECRET_KEY = 'p0u&$i8umsc70*-x1cip$wnva-6xt6bmo!k0_2z939w8mviz2a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['colorcult.pythonanywhere.com']
 
 
 # Application definition
